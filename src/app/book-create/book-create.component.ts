@@ -11,10 +11,19 @@ import { HttpClient } from '@angular/common/http';
 export class BookCreateComponent implements OnInit {
 
   book = {};
+  
+  types = [
+    {label: 'Książka', value: 'Książka'},
+    {label: 'Artykuł', value: 'Artykuł'},
+    {label: 'Inne', value: 'Inne'}
+  ];
+
+  selectedType;
 
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
+    console.log(this.selectedType)
   }
 
   saveBook() {
