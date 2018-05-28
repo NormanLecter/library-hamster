@@ -10,12 +10,27 @@ import { HttpClient } from '@angular/common/http';
 export class BookComponent implements OnInit {
 
   books: any;
+  items = [
+    {label: 'Plik BIBTEX', icon: 'fa-link', command: () => {
+        // TODO: pobranie pliku BIBTEX
+    }},
+    {label: 'Plik PDF', icon: 'fa-link', command: () => {
+        // TODO: pobranie pliku PDF
+    }},
+    {label: 'Plik TXT', icon: 'fa-link', command: () => {
+      // TODO: pobranie pliku TXT
+    }},
+    {label: 'Plik DOC', icon: 'fa-link', command: () => {
+    // TODO: pobranie pliku DOC
+    }},
+    // {label: 'Angular.io', icon: 'fa-link', url: 'http://angular.io'},
+    // {label: 'Theming', icon: 'fa-paint-brush', routerLink: ['/theming']}
+  ];
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.http.get('/book').subscribe(data => {
-      console.log(data);
       this.books = data;
     });
   }

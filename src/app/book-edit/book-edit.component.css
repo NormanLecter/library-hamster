@@ -1,0 +1,28 @@
+.container > .header > a {
+    height: 50px;
+    margin: 20px;
+}
+
+.container > .logo > img{
+    height: 200px;
+    display: block;
+    margin: 25% auto;
+}
+
+.container > .subtitle{
+    margin-top: -30px;
+}
+
+.container > .form > form > .buttons{
+    display: inline-flex;
+}
+
+.container > .form > form > .buttons > div{
+    padding: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+    .container > .logo > img{
+        display: none;
+    }
+}

@@ -10,8 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BookCreateComponent implements OnInit {
 
-  book = {};
-  
+  book = {};  
   types = [
     {label: 'Książka', value: 'Książka'},
     {label: 'Artykuł', value: 'Artykuł'},

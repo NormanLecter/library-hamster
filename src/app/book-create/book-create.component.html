@@ -12,11 +12,11 @@
       <form (ngSubmit)="saveBook()" #bookForm="ngForm">
           <div class="form-group">
             <label for="name">Typ publikacji *</label>
-            <p-selectButton [options]="types" [(ngModel)]="selectedType" [ngModelOptions]="{standalone: true}" required></p-selectButton>
+            <p-selectButton [options]="types" [(ngModel)]="book.publication_type" [ngModelOptions]="{standalone: true}" required></p-selectButton>
           </div>
           <div class="form-group">
-            <label for="name">ISBN *</label>
-            <input pInputText type="text" class="form-control" [(ngModel)]="book.isbn" name="isbn" required>
+            <label for="name">ISBN </label>
+            <input pInputText type="text" maxlength="13" minlength="0" class="form-control" [(ngModel)]="book.isbn" name="isbn">
           </div>
           <div class="form-group">
             <label for="name">Tytuł *</label>
@@ -43,11 +43,11 @@
             <input pInputText type="text" class="form-control" [(ngModel)]="book.short_desc" name="link">
           </div>
           <div class="form-group">
-              <label for="name">Pliki BIBTEX / PDF itp. (możesz wybrać pliki metodą Drag and Drop)</label>
-              <p-fileUpload chooseLabel="Wybierz pliki z dysku" uploadLabel="Wyślij na serwer" cancelLabel="Anuluj" name="myfile[]" url="./upload.php"></p-fileUpload>
-            </div>
+            <label for="name">Pliki BIBTEX / PDF itp. (możesz wybrać pliki metodą Drag and Drop)</label>
+            <p-fileUpload chooseLabel="Wybierz pliki z dysku" uploadLabel="Wyślij na serwer" cancelLabel="Anuluj" name="myfile[]" url="./upload.php"></p-fileUpload>
+          </div>
           <div class="form-group">
-            <button type="submit" class="btn btn-success" [disabled]="!bookForm.form.valid || selectedType === undefined">Dodaj pozycję</button>
+            <button type="submit" class="btn btn-success" [disabled]="!bookForm.form.valid || book.publication_type === undefined">Dodaj pozycję</button>
           </div>
         </form>
     </div>

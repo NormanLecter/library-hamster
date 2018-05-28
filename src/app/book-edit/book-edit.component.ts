@@ -11,6 +11,11 @@ import { HttpClient } from '@angular/common/http';
 export class BookEditComponent implements OnInit {
 
   book: any = {};
+  types = [
+    {label: 'Książka', value: 'Książka'},
+    {label: 'Artykuł', value: 'Artykuł'},
+    {label: 'Inne', value: 'Inne'}
+  ];
 
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) { }
 

@@ -7,6 +7,10 @@
     margin: 20px;
 }
 
+.container >  table > tbody > tr > td > a{
+    cursor: pointer;
+}
+
 .container > .header > h1{
     color: #cc0000;
 }

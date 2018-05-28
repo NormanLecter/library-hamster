@@ -7,20 +7,26 @@
         </a>
       </h1>
   </div>
-  <h4>Poniżej znajduje się lista wsystkich pozycji dostępnych w bazie</h4>    
+  <h4>Poniżej znajduje się lista wszystkich pozycji dostępnych w bazie</h4>    
   <table class="ui-g- ui-md-12 ui-lg-12 table">
     <thead>
       <tr>
-        <th>Tytuł</th>
+        <th>Typ publikacji</th> 
         <th>Autor</th>
+        <th>Tytuł</th> 
+        <th>Pliki</th>
+        <th>Link</th>
         <th></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let book of books">
-        <td>{{ book.title }}</td>
+          <td>{{ book.publication_type }}</td>
         <td>{{ book.author }}</td>
-        <td><a [routerLink]="['/book-details', book._id]">Więcej</a></td>
+        <td>{{ book.title }}</td>
+        <td><p-splitButton label="Pobierz" icon="fa-check" (onClick)="save()" [model]="items" styleClass="ui-button-warning"></p-splitButton></td>
+        <td><a href="http://{{book.link}}" target="_blank">{{ book.link }}</a></td>
+        <td><a [routerLink]="['/book-details', book._id]"><button pButton type="button" label="Więcej" class="ui-button-success"></button></a></td>
       </tr>
     </tbody>
   </table>

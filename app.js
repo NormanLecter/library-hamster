@@ -10,7 +10,7 @@ var app = express();
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 mongoose.connect('mongodb://admin:adammalysz@ds155699.mlab.com:55699/bibliograficzny_chomik', { useMongoClient: true })
-  .then(() =>  console.log('connection succesful'))
+  .then(() =>  console.log('\nMongoDB - connection succesful!\n'))
   .catch((err) => console.error(err));
 
 app.use(logger('dev'));

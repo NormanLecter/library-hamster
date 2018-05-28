@@ -1,0 +1,34 @@
+.container > .header > a {
+    height: 50px;
+    margin: 20px;
+}
+
+.container > .details > h4 {
+    margin-top: -20px;
+    margin-bottom: 30px;
+}
+
+.container > .logo > img{
+    height: 200px;
+    display: block;
+    margin: 25% auto;
+}
+
+.container > .subtitle{
+    margin-top: -30px;
+}
+
+@media screen and (max-width: 1024px) {
+    .container > .logo > img{
+        display: none;
+    }
+}
+
+.container > .buttons  {
+    display: inline-flex;
+    margin-bottom: 20px;
+}
+
+.container > .buttons > a {
+    margin-right: 30px;
+}

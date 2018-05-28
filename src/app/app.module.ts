@@ -8,12 +8,19 @@ import { InputTextModule } from 'primeng/inputtext';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { ButtonModule } from 'primeng/button';
 import { FileUploadModule } from 'primeng/fileupload';
+import { SplitButtonModule } from 'primeng/splitbutton';
 
 import { AppComponent } from './app.component';
 import { BookComponent } from './book/book.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookCreateComponent } from './book-create/book-create.component';
 import { BookEditComponent } from './book-edit/book-edit.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { LOCALE_ID } from '@angular/core';
+import localePl from '@angular/common/locales/pl';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localePl, 'pl');
 
 import { routing } from './app.routes';
 
@@ -33,9 +40,13 @@ import { routing } from './app.routes';
     ButtonModule,
     SelectButtonModule,
     FileUploadModule,
+    SplitButtonModule,
+    BrowserAnimationsModule,
     routing
   ],
-  providers: [],
+  providers: [ 
+    {provide: LOCALE_ID, useValue: "pl"}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
