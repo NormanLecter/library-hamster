@@ -9,6 +9,8 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { ButtonModule } from 'primeng/button';
 import { FileUploadModule } from 'primeng/fileupload';
 import { SplitButtonModule } from 'primeng/splitbutton';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
 
 import { AppComponent } from './app.component';
 import { BookComponent } from './book/book.component';
@@ -41,6 +43,8 @@ import { routing } from './app.routes';
     SelectButtonModule,
     FileUploadModule,
     SplitButtonModule,
+    MessagesModule,
+    MessageModule,
     BrowserAnimationsModule,
     routing
   ],

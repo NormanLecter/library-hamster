@@ -81,15 +81,19 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_primeng_fileupload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_primeng_fileupload__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_primeng_splitbutton__ = __webpack_require__("./node_modules/primeng/splitbutton.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_primeng_splitbutton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_primeng_splitbutton__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_component__ = __webpack_require__("./src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__book_book_component__ = __webpack_require__("./src/app/book/book.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__book_detail_book_detail_component__ = __webpack_require__("./src/app/book-detail/book-detail.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__book_create_book_create_component__ = __webpack_require__("./src/app/book-create/book-create.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__book_edit_book_edit_component__ = __webpack_require__("./src/app/book-edit/book-edit.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_platform_browser_animations__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/animations.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_common_locales_pl__ = __webpack_require__("./node_modules/@angular/common/locales/pl.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_common__ = __webpack_require__("./node_modules/@angular/common/esm5/common.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__app_routes__ = __webpack_require__("./src/app/app.routes.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_primeng_messages__ = __webpack_require__("./node_modules/primeng/messages.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_primeng_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_primeng_messages__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_primeng_message__ = __webpack_require__("./node_modules/primeng/message.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_primeng_message___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_primeng_message__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_component__ = __webpack_require__("./src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__book_book_component__ = __webpack_require__("./src/app/book/book.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__book_detail_book_detail_component__ = __webpack_require__("./src/app/book-detail/book-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__book_create_book_create_component__ = __webpack_require__("./src/app/book-create/book-create.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__book_edit_book_edit_component__ = __webpack_require__("./src/app/book-edit/book-edit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_platform_browser_animations__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/animations.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__angular_common_locales_pl__ = __webpack_require__("./node_modules/@angular/common/locales/pl.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__angular_common__ = __webpack_require__("./node_modules/@angular/common/esm5/common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__app_routes__ = __webpack_require__("./src/app/app.routes.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -114,7 +118,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-Object(__WEBPACK_IMPORTED_MODULE_16__angular_common__["registerLocaleData"])(__WEBPACK_IMPORTED_MODULE_15__angular_common_locales_pl__["a" /* default */], 'pl');
+
+
+Object(__WEBPACK_IMPORTED_MODULE_18__angular_common__["registerLocaleData"])(__WEBPACK_IMPORTED_MODULE_17__angular_common_locales_pl__["a" /* default */], 'pl');
 
 var AppModule = (function () {
     function AppModule() {
@@ -122,11 +128,11 @@ var AppModule = (function () {
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__book_book_component__["a" /* BookComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__book_detail_book_detail_component__["a" /* BookDetailComponent */],
-                __WEBPACK_IMPORTED_MODULE_12__book_create_book_create_component__["a" /* BookCreateComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__book_edit_book_edit_component__["a" /* BookEditComponent */]
+                __WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__book_book_component__["a" /* BookComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__book_detail_book_detail_component__["a" /* BookDetailComponent */],
+                __WEBPACK_IMPORTED_MODULE_14__book_create_book_create_component__["a" /* BookCreateComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__book_edit_book_edit_component__["a" /* BookEditComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["BrowserModule"],
@@ -137,13 +143,15 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_5_primeng_selectbutton__["SelectButtonModule"],
                 __WEBPACK_IMPORTED_MODULE_7_primeng_fileupload__["FileUploadModule"],
                 __WEBPACK_IMPORTED_MODULE_8_primeng_splitbutton__["SplitButtonModule"],
-                __WEBPACK_IMPORTED_MODULE_14__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-                __WEBPACK_IMPORTED_MODULE_17__app_routes__["a" /* routing */]
+                __WEBPACK_IMPORTED_MODULE_9_primeng_messages__["MessagesModule"],
+                __WEBPACK_IMPORTED_MODULE_10_primeng_message__["MessageModule"],
+                __WEBPACK_IMPORTED_MODULE_16__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
+                __WEBPACK_IMPORTED_MODULE_19__app_routes__["a" /* routing */]
             ],
             providers: [
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["LOCALE_ID"], useValue: "pl" }
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */]]
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -210,7 +218,7 @@ module.exports = ".container > .header > a {\n    height: 50px;\n    margin: 20p
 /***/ "./src/app/book-create/book-create.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui-g container\">\n    <div class=\"ui-g-12 ui-md-12 ui-lg-12 header\">\n        <a [routerLink]=\"['/books']\" class=\"btn btn-default btn-lg\">\n          <span class=\"glyphicon glyphicon-arrow-left\" aria-hidden=\"true\"></span>\n        </a>\n        <h1>Dodaj nową pozycję</h1>\n    </div>\n    <div class=\"ui-g-12 ui-md-12 ui-lg-12 subtitle\">\n        <h4>Wprowadź dane dotyczące nowej pozycji</h4> \n    </div>\n    <div class=\"ui-g-12 ui-md-12 ui-lg-6\">\n      <form (ngSubmit)=\"saveBook()\" #bookForm=\"ngForm\">\n          <div class=\"form-group\">\n            <label for=\"name\">Typ publikacji *</label>\n            <p-selectButton [options]=\"types\" [(ngModel)]=\"book.publication_type\" [ngModelOptions]=\"{standalone: true}\" required></p-selectButton>\n          </div>\n          <div class=\"form-group\">\n            <label for=\"name\">ISBN </label>\n            <input pInputText type=\"text\" maxlength=\"13\" minlength=\"0\" class=\"form-control\" [(ngModel)]=\"book.isbn\" name=\"isbn\">\n          </div>\n          <div class=\"form-group\">\n            <label for=\"name\">Tytuł *</label>\n            <input pInputText type=\"text\" class=\"form-control\" [(ngModel)]=\"book.title\" name=\"title\" required>\n          </div>\n          <div class=\"form-group\">\n            <label for=\"name\">Autor/Autorzy (wymień po przecinku) *</label>\n            <input pInputText type=\"text\" class=\"form-control\" [(ngModel)]=\"book.author\" name=\"author\" required>\n          </div>\n          <div class=\"form-group\">\n            <label for=\"name\">Rok publikacji</label>\n            <input pInputText type=\"number\" class=\"form-control\" [(ngModel)]=\"book.published_year\" name=\"published_year\">\n          </div>\n          <div class=\"form-group\">\n            <label for=\"name\">Wydawnictwo</label>\n            <input pInputText type=\"text\" class=\"form-control\" [(ngModel)]=\"book.publisher\" name=\"publisher\">\n          </div>\n          <div class=\"form-group\">\n            <label for=\"name\">Link do księgarni / wersji PDF itp.</label>\n            <input pInputText type=\"text\" class=\"form-control\" [(ngModel)]=\"book.link\" name=\"link\">\n          </div>\n          <div class=\"form-group\">\n            <label for=\"name\">Krótki opis / uwagi</label>\n            <input pInputText type=\"text\" class=\"form-control\" [(ngModel)]=\"book.short_desc\" name=\"link\">\n          </div>\n          <div class=\"form-group\">\n            <label for=\"name\">Pliki BIBTEX / PDF itp. (możesz wybrać pliki metodą Drag and Drop)</label>\n            <p-fileUpload chooseLabel=\"Wybierz pliki z dysku\" uploadLabel=\"Wyślij na serwer\" cancelLabel=\"Anuluj\" name=\"myfile[]\" url=\"./upload.php\"></p-fileUpload>\n          </div>\n          <div class=\"form-group\">\n            <button type=\"submit\" class=\"btn btn-success\" [disabled]=\"!bookForm.form.valid || book.publication_type === undefined\">Dodaj pozycję</button>\n          </div>\n        </form>\n    </div>\n  <div class=\"ui-g-12 ui-md-12 ui-lg-6 logo\">\n      <img src=\"../../favicon.png\" alt=\"Biblioteczny chomik\" />\n  </div>\n</div>\n"
+module.exports = "<p-messages [(value)]=\"msgs\"></p-messages>\n<div class=\"ui-g container\">\n    <div class=\"ui-g-12 ui-md-12 ui-lg-12 header\">\n        <a [routerLink]=\"['/books']\" class=\"btn btn-default btn-lg\">\n          <span class=\"glyphicon glyphicon-arrow-left\" aria-hidden=\"true\"></span>\n        </a>\n        <h1>Dodaj nową pozycję</h1>\n    </div>\n    <div class=\"ui-g-12 ui-md-12 ui-lg-12 subtitle\">\n        <h4>Wprowadź dane dotyczące nowej pozycji</h4> \n    </div>\n    <div class=\"ui-g-12 ui-md-12 ui-lg-6\">\n      <form (ngSubmit)=\"saveBook()\" #bookForm=\"ngForm\">\n          <div class=\"form-group\">\n            <label for=\"name\">Wczytaj dane z pliku BIBTEX (możesz wybrać pliki metodą Drag and Drop)</label>\n            <!-- (onUpload)=\"BibtexScanUploaded($event)\" (onBeforeSend)=\"onBeforeSendBibtex({e: $event, r: row})\" -->\n            <p-fileUpload chooseLabel=\"Wybierz pliki z dysku\" uploadLabel=\"Wyślij plik\" \n            url=\"/book-load\" cancelLabel=\"Anuluj\" name=\"myfile[]\" (onUpload)=\"onUpload($event)\">\n            <ng-template pTemplate=\"content\">\n                <ul *ngIf=\"uploadedFiles.length\">\n                    <li *ngFor=\"let file of uploadedFiles\">{{file.name}} - {{file.size}} bytes</li>\n                </ul> \n            </ng-template>        \n            </p-fileUpload>\n          </div>\n          <hr>\n          <h4>lub wprowadź dane ręcznie</h4> \n          <hr> \n          <div class=\"form-group\">\n            <label for=\"name\">Typ publikacji *</label>\n            <p-selectButton [options]=\"types\" [(ngModel)]=\"book.publication_type\" [ngModelOptions]=\"{standalone: true}\" required></p-selectButton>\n          </div>\n          <div class=\"form-group\">\n            <label for=\"name\">ISBN </label>\n            <input pInputText type=\"text\" maxlength=\"13\" minlength=\"0\" class=\"form-control\" [(ngModel)]=\"book.isbn\" name=\"isbn\">\n          </div>\n          <div class=\"form-group\">\n            <label for=\"name\">Tytuł *</label>\n            <input pInputText type=\"text\" class=\"form-control\" [(ngModel)]=\"book.title\" name=\"title\" required>\n          </div>\n          <div class=\"form-group\">\n            <label for=\"name\">Autor/Autorzy (wymień po przecinku) *</label>\n            <input pInputText type=\"text\" class=\"form-control\" [(ngModel)]=\"book.author\" name=\"author\" required>\n          </div>\n          <div class=\"form-group\">\n            <label for=\"name\">Rok publikacji</label>\n            <input pInputText type=\"number\" class=\"form-control\" [(ngModel)]=\"book.published_year\" name=\"published_year\">\n          </div>\n          <div class=\"form-group\">\n            <label for=\"name\">Wydawnictwo</label>\n            <input pInputText type=\"text\" class=\"form-control\" [(ngModel)]=\"book.publisher\" name=\"publisher\">\n          </div>\n          <div class=\"form-group\">\n            <label for=\"name\">Link do księgarni / wersji PDF itp.</label>\n            <input pInputText type=\"text\" class=\"form-control\" [(ngModel)]=\"book.link\" name=\"link\">\n          </div>\n          <div class=\"form-group\">\n            <label for=\"name\">Krótki opis / uwagi</label>\n            <input pInputText type=\"text\" class=\"form-control\" [(ngModel)]=\"book.short_desc\" name=\"link\">\n          </div>\n          <div class=\"form-group\">\n            <label for=\"name\">Pliki BIBTEX / PDF itp. (możesz wybrać pliki metodą Drag and Drop)</label>\n            <p-fileUpload chooseLabel=\"Wybierz pliki z dysku\" uploadLabel=\"Wyślij na serwer\" cancelLabel=\"Anuluj\" name=\"myfile[]\" url=\"./upload.php\"></p-fileUpload>\n          </div>\n          <div class=\"form-group\">\n            <button type=\"submit\" class=\"btn btn-success\" [disabled]=\"!bookForm.form.valid || book.publication_type === undefined\">Dodaj pozycję</button>\n          </div>\n        </form>\n    </div>\n  <div class=\"ui-g-12 ui-md-12 ui-lg-6 logo\">\n      <img src=\"../../favicon.png\" alt=\"Biblioteczny chomik\" />\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -244,9 +252,31 @@ var BookCreateComponent = (function () {
             { label: 'Artykuł', value: 'Artykuł' },
             { label: 'Inne', value: 'Inne' }
         ];
+        this.uploadedFiles = [];
     }
     BookCreateComponent.prototype.ngOnInit = function () {
-        console.log(this.selectedType);
+    };
+    // public BibtexScanUploaded(event) {
+    //   console.log('PLIK WYSŁANY!');
+    //   // this.showMessage('success', 'Przesyłanie skanu umowy', 'Przesyłanie skanu umowy zostało zakończone poprawnie.');
+    // } 
+    // public onBeforeSendBibtex(placeholder) {
+    //   placeholder.e.xhr.open('POST', 'http://LOCALHOST:3000/book-load', true);
+    //       //placeholder.e.xhr.open('POST', 'http://LOCALHOST:3000/contract_api/contract_scans', true);
+    // }
+    BookCreateComponent.prototype.onUpload = function (event) {
+        console.log('Test!');
+        console.log(event.files[0]);
+        this.http.post('http://localhost:3000/book-load', event.files[0]).subscribe(function (res) {
+            console.log('ELO');
+            console.log(res);
+        });
+        // for(let file of event.files) {
+        //     this.uploadedFiles.push(file);
+        // }
+        // this.msgs = [];
+        // this.msgs.push({severity: 'info', summary: 'Pliki wysłane', detail: ''});
+        // this.loadBook(this.uploadedFiles[0]);
     };
     BookCreateComponent.prototype.saveBook = function () {
         var _this = this;
@@ -254,6 +284,14 @@ var BookCreateComponent = (function () {
             .subscribe(function (res) {
             var id = res['_id'];
             _this.router.navigate(['/book-details', id]);
+        }, function (err) {
+            console.log(err);
+        });
+    };
+    BookCreateComponent.prototype.loadBook = function (book) {
+        this.http.post('/book-load', book)
+            .subscribe(function (res) {
+            console.log(res);
         }, function (err) {
             console.log(err);
         });
