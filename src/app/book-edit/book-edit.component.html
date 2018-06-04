@@ -42,10 +42,6 @@
           <label for="name">Krótki opis / uwagi</label>
           <input pInputText type="text" class="form-control" [(ngModel)]="book.short_desc" name="link">
         </div>
-        <div class="form-group">
-          <label for="name">Pliki BIBTEX / PDF itp. (możesz wybrać pliki metodą Drag and Drop)</label>
-          <p-fileUpload chooseLabel="Wybierz pliki z dysku" uploadLabel="Wyślij na serwer" cancelLabel="Anuluj" name="myfile[]" url="./upload.php"></p-fileUpload>
-        </div>
         <div class="buttons">
           <div class="form-group">
             <button type="submit" class="btn btn-success" [disabled]="!bookForm.form.valid || book.publication_type === undefined">Zapisz zmiany</button>

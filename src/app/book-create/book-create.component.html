@@ -1,4 +1,3 @@
-<p-messages [(value)]="msgs"></p-messages>
 <div class="ui-g container">
     <div class="ui-g-12 ui-md-12 ui-lg-12 header">
         <a [routerLink]="['/books']" class="btn btn-default btn-lg">
@@ -11,21 +10,6 @@
     </div>
     <div class="ui-g-12 ui-md-12 ui-lg-6">
       <form (ngSubmit)="saveBook()" #bookForm="ngForm">
-          <div class="form-group">
-            <label for="name">Wczytaj dane z pliku BIBTEX (możesz wybrać pliki metodą Drag and Drop)</label>
-            <!-- (onUpload)="BibtexScanUploaded($event)" (onBeforeSend)="onBeforeSendBibtex({e: $event, r: row})" -->
-            <p-fileUpload chooseLabel="Wybierz pliki z dysku" uploadLabel="Wyślij plik" 
-            url="/book-load" cancelLabel="Anuluj" name="myfile[]" (onUpload)="onUpload($event)">
-            <ng-template pTemplate="content">
-                <ul *ngIf="uploadedFiles.length">
-                    <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
-                </ul> 
-            </ng-template>        
-            </p-fileUpload>
-          </div>
-          <hr>
-          <h4>lub wprowadź dane ręcznie</h4> 
-          <hr> 
           <div class="form-group">
             <label for="name">Typ publikacji *</label>
             <p-selectButton [options]="types" [(ngModel)]="book.publication_type" [ngModelOptions]="{standalone: true}" required></p-selectButton>
@@ -57,10 +41,6 @@
           <div class="form-group">
             <label for="name">Krótki opis / uwagi</label>
             <input pInputText type="text" class="form-control" [(ngModel)]="book.short_desc" name="link">
-          </div>
-          <div class="form-group">
-            <label for="name">Pliki BIBTEX / PDF itp. (możesz wybrać pliki metodą Drag and Drop)</label>
-            <p-fileUpload chooseLabel="Wybierz pliki z dysku" uploadLabel="Wyślij na serwer" cancelLabel="Anuluj" name="myfile[]" url="./upload.php"></p-fileUpload>
           </div>
           <div class="form-group">
             <button type="submit" class="btn btn-success" [disabled]="!bookForm.form.valid || book.publication_type === undefined">Dodaj pozycję</button>

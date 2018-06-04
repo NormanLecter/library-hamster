@@ -11,6 +11,7 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { ToggleButtonModule } from 'primeng/togglebutton';
 
 import { AppComponent } from './app.component';
 import { BookComponent } from './book/book.component';
@@ -23,6 +24,8 @@ import { LOCALE_ID } from '@angular/core';
 import localePl from '@angular/common/locales/pl';
 import { registerLocaleData } from '@angular/common';
 registerLocaleData(localePl, 'pl');
+
+import { MessageService } from 'primeng/components/common/messageservice';
 
 import { routing } from './app.routes';
 
@@ -43,13 +46,15 @@ import { routing } from './app.routes';
     SelectButtonModule,
     FileUploadModule,
     SplitButtonModule,
+    ToggleButtonModule,
     MessagesModule,
     MessageModule,
     BrowserAnimationsModule,
     routing
   ],
   providers: [ 
-    {provide: LOCALE_ID, useValue: "pl"}
+    {provide: LOCALE_ID, useValue: "pl"},
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

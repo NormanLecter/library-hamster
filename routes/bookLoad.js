@@ -4,9 +4,9 @@ var mongoose = require('mongoose');
 var fs = require('fs');
 var bibtexParse = require('bibtex-parse-js');
 
-/* GET  */
+/* GET */
 router.get('/', function(req, res, next) {
-  res.json({'test' : 'elo'});
+
 });
 
 /* LOAD FILE */
@@ -16,8 +16,8 @@ router.post('/', function(req, res, next) {
       body += chunk.toString();
   });
   req.on('end', () => {
-      console.log(body);
-      res.json({'dalo' : 'rade'});
+    let bibtex = bibtexParse.toJSON(body);
+    res.json(bibtex);
   })
 });
 

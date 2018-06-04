@@ -24,8 +24,6 @@
       <dd style="margin-bottom: 15px;">{{ book.link }}</dd>
       <dt>Krótki opis / uwagi</dt>
       <dd style="margin-bottom: 15px;">{{ book.short_desc }}</dd>
-      <dt>Pliki</dt>
-      <dd style="margin-bottom: 15px;"><p-splitButton label="Pobierz" icon="fa-check" (onClick)="save()" [model]="items" styleClass="ui-button-warning"></p-splitButton></dd>
       <dt>Data ostatniej aktualizacji wpisu</dt>
       <dd style="margin-bottom: 15px;">{{ book.updated_date | date:'short' }}</dd>
     </dl>
@@ -34,7 +32,7 @@
       <img src="../../favicon.png" alt="Biblioteczny chomik" />
   </div>
   <div class="col-md-12  buttons">
-    <a [routerLink]="['/book-edit', book._id]" class="btn btn-success">Edytuj wpis</a>
+    <a [routerLink]="['/book-edit', book._id]" class="btn btn-warning">Edytuj wpis</a>
     <button class="btn btn-danger" type="button" (click)="deleteBook(book._id)">Usuń wpis</button>
   </div>
 </div>

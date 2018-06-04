@@ -1,3 +1,4 @@
+<p-messages [(value)]="msgs"></p-messages>
 <div class="ui-g container">
   <div class="ui-g-12 ui-md-12 ui-lg-12 header">
       <img src="../../favicon.png" alt="Biblioteczny chomik" />
@@ -8,26 +9,39 @@
       </h1>
   </div>
   <h4>Poniżej znajduje się lista wszystkich pozycji dostępnych w bazie</h4>    
+  <div>
+    <label for="name">Wgraj pozycje z pliku BIBTEX (możesz wybrać pliki metodą Drag and Drop)</label>
+    <!-- (onUpload)="BibtexScanUploaded($event)" (onBeforeSend)="onBeforeSendBibtex({e: $event, r: row})" -->
+    <p-fileUpload chooseLabel="Wybierz pliki z dysku" uploadLabel="Wyślij plik" 
+    url="/book-load" cancelLabel="Anuluj" name="myfile[]" (onUpload)="onUpload($event)">
+    <ng-template pTemplate="content">
+        <ul *ngIf="uploadedFiles.length">
+            <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+        </ul> 
+    </ng-template>        
+    </p-fileUpload>
+  </div>
   <table class="ui-g- ui-md-12 ui-lg-12 table">
     <thead>
       <tr>
+        <th>Pozycje do pliku BIBTEX</th>
         <th>Typ publikacji</th> 
         <th>Autor</th>
         <th>Tytuł</th> 
-        <th>Pliki</th>
         <th>Link</th>
         <th></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let book of books">
-          <td>{{ book.publication_type }}</td>
+        <td><p-toggleButton [(ngModel)]="isChecked + book._id" onLabel="Wybrano" offLabel="Nie wybrano" onIcon="fa-check-square" offIcon="fa-square" [style]="{'width':'150px'}"></p-toggleButton></td>
+        <td>{{ book.publication_type }}</td>
         <td>{{ book.author }}</td>
         <td>{{ book.title }}</td>
-        <td><p-splitButton label="Pobierz" icon="fa-check" (onClick)="save()" [model]="items" styleClass="ui-button-warning"></p-splitButton></td>
         <td><a href="http://{{book.link}}" target="_blank">{{ book.link }}</a></td>
-        <td><a [routerLink]="['/book-details', book._id]"><button pButton type="button" label="Więcej" class="ui-button-success"></button></a></td>
+        <td><a [routerLink]="['/book-details', book._id]"><button pButton type="button" label="Więcej" class="ui-button-warning"></button></a></td>
       </tr>
+      <button pButton type="button" (click)="downloadBibtexFile()" label="Pobierz jako plik BIBTEX" class="ui-button-success"></button>
     </tbody>
   </table>
 </div> 

@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Message } from 'primeng/components/common/api';
+import { MessageService } from 'primeng/components/common/messageservice';
 
 @Component({
   selector: 'app-book',
@@ -10,22 +12,8 @@ import { HttpClient } from '@angular/common/http';
 export class BookComponent implements OnInit {
 
   books: any;
-  items = [
-    {label: 'Plik BIBTEX', icon: 'fa-link', command: () => {
-        // TODO: pobranie pliku BIBTEX
-    }},
-    {label: 'Plik PDF', icon: 'fa-link', command: () => {
-        // TODO: pobranie pliku PDF
-    }},
-    {label: 'Plik TXT', icon: 'fa-link', command: () => {
-      // TODO: pobranie pliku TXT
-    }},
-    {label: 'Plik DOC', icon: 'fa-link', command: () => {
-    // TODO: pobranie pliku DOC
-    }},
-    // {label: 'Angular.io', icon: 'fa-link', url: 'http://angular.io'},
-    // {label: 'Theming', icon: 'fa-paint-brush', routerLink: ['/theming']}
-  ];
+  uploadedFiles: any[] = [];
+  msgs: Message[];
 
   constructor(private http: HttpClient) { }
 
@@ -34,5 +22,28 @@ export class BookComponent implements OnInit {
       this.books = data;
     });
   }
+
+  onUpload(event) { 
+    console.log('Test!');
+    console.log(event.files[0]);
+    // TODO: Multiple files
+    this.http.post('http://localhost:3000/book-load', event.files[0]).subscribe(res => {
+      for(let file of event.files) {
+        this.uploadedFiles.push(file);
+      }
+      this.msgs = [];
+      this.msgs.push({severity: 'info', summary: 'Plik BIBTEX przesłany', detail: ''});
+      console.log(res);
+
+      //TODO: pozycje do obiektow o polach jak dodawanie i w petli postowanie this.http.post('/book', this.book)
+      //TODO: odswiezenie tabeli
+      this.msgs.push({severity: 'info', summary: 'Pozycje dodane do  listy', detail: ''});
+    })
+  }
+
+  downloadBibtexFile(){
+
+  }
+
 
 }

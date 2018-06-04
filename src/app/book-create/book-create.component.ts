@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { Message } from 'primeng/components/common/api';
-import { MessageService } from 'primeng/components/common/messageservice';
 
 @Component({
   selector: 'app-book-create',
@@ -20,8 +18,6 @@ export class BookCreateComponent implements OnInit {
     {label: 'Inne', value: 'Inne'}
   ];
 
-  msgs: Message[];
-  uploadedFiles: any[] = [];
   selectedType;
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -29,34 +25,6 @@ export class BookCreateComponent implements OnInit {
   ngOnInit() {
     
   }
-
-  // public BibtexScanUploaded(event) {
-  //   console.log('PLIK WYSŁANY!');
-  //   // this.showMessage('success', 'Przesyłanie skanu umowy', 'Przesyłanie skanu umowy zostało zakończone poprawnie.');
-  // } 
-
-  // public onBeforeSendBibtex(placeholder) {
-  //   placeholder.e.xhr.open('POST', 'http://LOCALHOST:3000/book-load', true);
-  //       //placeholder.e.xhr.open('POST', 'http://LOCALHOST:3000/contract_api/contract_scans', true);
-  // }
-
-
-  onUpload(event) { 
-    console.log('Test!');
-    console.log(event.files[0]);
-
-    this.http.post('http://localhost:3000/book-load', event.files[0]).subscribe(res => {
-      console.log('ELO');
-      console.log(res);
-    })
-    // for(let file of event.files) {
-    //     this.uploadedFiles.push(file);
-    // }
-    // this.msgs = [];
-    // this.msgs.push({severity: 'info', summary: 'Pliki wysłane', detail: ''});
-    // this.loadBook(this.uploadedFiles[0]);
-}
-
 
   saveBook() {
     this.http.post('/book', this.book)
