@@ -11,6 +11,8 @@ import { HttpClient } from '@angular/common/http';
 export class BookEditComponent implements OnInit {
 
   book: any = {};
+  loadingData : boolean =  true;
+
   types = [
     {label: 'Książka', value: 'Książka'},
     {label: 'Artykuł', value: 'Artykuł'},
@@ -26,6 +28,7 @@ export class BookEditComponent implements OnInit {
   getBook(id) {
     this.http.get('/book/'+id).subscribe(data => {
       this.book = data;
+      this.loadingData = false;
     });
   }
 

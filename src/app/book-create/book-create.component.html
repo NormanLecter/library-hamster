@@ -12,7 +12,8 @@
       <form (ngSubmit)="saveBook()" #bookForm="ngForm">
           <div class="form-group">
             <label for="name">Typ publikacji *</label>
-            <p-selectButton [options]="types" [(ngModel)]="book.publication_type" [ngModelOptions]="{standalone: true}" required></p-selectButton>
+            <input pInputText type="text" maxlength="13" minlength="0" class="form-control" [(ngModel)]="book.publication_type" name="isbn">
+            <!-- <p-selectButton [options]="types" [(ngModel)]="book.publication_type" [ngModelOptions]="{standalone: true}" required></p-selectButton> -->
           </div>
           <div class="form-group">
             <label for="name">ISBN </label>
@@ -40,7 +41,7 @@
           </div>
           <div class="form-group">
             <label for="name">Krótki opis / uwagi</label>
-            <input pInputText type="text" class="form-control" [(ngModel)]="book.short_desc" name="link">
+            <input pInputText type="text" class="form-control" [(ngModel)]="book.short_desc" name="short_desc">
           </div>
           <div class="form-group">
             <button type="submit" class="btn btn-success" [disabled]="!bookForm.form.valid || book.publication_type === undefined">Dodaj pozycję</button>

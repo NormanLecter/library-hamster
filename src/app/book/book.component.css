@@ -22,3 +22,15 @@
 .container > h4{
     margin-top: -10px;
 }
+
+.container  > .file-upload{
+    margin: 20px;
+}
+
+.container > .progressSpinner{
+    margin-left: 40%;
+}
+
+.container > button{
+    margin: 10px;
+}

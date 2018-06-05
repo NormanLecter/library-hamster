@@ -17,6 +17,10 @@
     display: inline-flex;
 }
 
+.container > .progressSpinner{
+    margin-left: 40%;
+}
+
 .container > .form > form > .buttons > div{
     padding: 20px;
 }

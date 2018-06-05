@@ -32,3 +32,7 @@
 .container > .buttons > a {
     margin-right: 30px;
 }
+
+.container > .progressSpinner{
+    margin-left: 40%;
+}

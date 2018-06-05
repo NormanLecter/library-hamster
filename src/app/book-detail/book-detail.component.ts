@@ -11,6 +11,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class BookDetailComponent implements OnInit {
 
   book = {};
+  loadingData : boolean =  true;
+
   items = [
     {label: 'Plik BIBTEX', icon: 'fa-link', command: () => {
         // TODO: pobranie pliku BIBTEX
@@ -37,6 +39,7 @@ export class BookDetailComponent implements OnInit {
   getBookDetail(id) {
     this.http.get('/book/'+id).subscribe(data => {
       this.book = data;
+      this.loadingData = false;
     });
   }
 

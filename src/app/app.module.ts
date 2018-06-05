@@ -12,6 +12,9 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { ToggleButtonModule } from 'primeng/togglebutton';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { TableModule } from 'primeng/table';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 import { AppComponent } from './app.component';
 import { BookComponent } from './book/book.component';
@@ -50,6 +53,9 @@ import { routing } from './app.routes';
     MessagesModule,
     MessageModule,
     BrowserAnimationsModule,
+    ProgressBarModule,
+    ProgressSpinnerModule,
+    TableModule,
     routing
   ],
   providers: [ 
