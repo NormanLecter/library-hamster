@@ -1,21 +1,39 @@
-<div class="container">
-  <h1>{{ book.title }}</h1>
-  <dl class="list">
-    <dt>ISBN</dt>
-    <dd>{{ book.isbn }}</dd>
-    <dt>Author</dt>
-    <dd>{{ book.author }}</dd>
-    <dt>Publish Year</dt>
-    <dd>{{ book.published_year }}</dd>
-    <dt>Publisher</dt>
-    <dd>{{ book.publisher }}</dd>
-    <dt>Update Date</dt>
-    <dd>{{ book.updated_date | date:'short' }}</dd>
-  </dl>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <a [routerLink]="['/book-edit', book._id]" class="btn btn-success">EDIT</a>
-    <button class="btn btn-danger" type="button" (click)="deleteBook(book._id)">DELETE</button>
+<div class="ui-g container">
+  <div class="ui-g-12 ui-md-12 ui-lg-12 header">
+    <a [routerLink]="['/books']" class="btn btn-default btn-lg">
+      <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    </a>    
+    <h1>{{ book.title }}</h1>
+  </div>
+  <p-progressSpinner class="ui-g-12 ui-md-12 ui-lg-12 progressSpinner" *ngIf="loadingData"></p-progressSpinner>
+  <div *ngIf="!loadingData" class="ui-g-12 ui-md-12 ui-lg-6 details">
+    <h4>Poniżej znajdują się szczegóły wybranej pozycji</h4> 
+    <dl class="list">
+      <dt>Typ publikacji</dt>
+      <dd style="margin-bottom: 15px;">{{ book.publication_type }}</dd>
+      <dt>ISBN</dt>
+      <dd style="margin-bottom: 15px;">{{ book.isbn }}</dd>
+      <dt>Tytuł</dt>
+      <dd style="margin-bottom: 15px;">{{ book.title }}</dd>
+      <dt>Autor / Autorzy</dt>
+      <dd style="margin-bottom: 15px;">{{ book.author }}</dd>
+      <dt>Rok publikacji</dt>
+      <dd style="margin-bottom: 15px;">{{ book.published_year }}</dd>
+      <dt>Wydawnictwo</dt>
+      <dd style="margin-bottom: 15px;">{{ book.publisher }}</dd>
+      <dt>Link do księgarni / wersji PDF itp.</dt>
+      <dd style="margin-bottom: 15px;">{{ book.link }}</dd>
+      <dt>Krótki opis / uwagi</dt>
+      <dd style="margin-bottom: 15px;">{{ book.short_desc }}</dd>
+      <dt>Data ostatniej aktualizacji wpisu</dt>
+      <dd style="margin-bottom: 15px;">{{ book.updated_date | date:'short' }}</dd>
+    </dl>
+  </div>
+  <div *ngIf="!loadingData" class="ui-g-12 ui-md-12 ui-lg-6 logo">
+      <img src="../../favicon.png" alt="Biblioteczny chomik" />
+  </div>
+  <div class="col-md-12  buttons">
+    <a [routerLink]="['/book-edit', book._id]" class="btn btn-warning">Edytuj wpis</a>
+    <button class="btn btn-danger" type="button" (click)="deleteBook(book._id)">Usuń wpis</button>
   </div>
 </div>

@@ -1,0 +1,36 @@
+.container > .header{
+    display: inline-flex;
+}
+
+.container >  .header > img{
+    height: 50px;
+    margin: 20px;
+}
+
+.container >  table > tbody > tr > td > a{
+    cursor: pointer;
+}
+
+.container > .header > h1{
+    color: #cc0000;
+}
+
+.container > .header > h1{
+    color: #cc0000;
+}
+
+.container > h4{
+    margin-top: -10px;
+}
+
+.container  > .file-upload{
+    margin: 20px;
+}
+
+.container > .progressSpinner{
+    margin-left: 40%;
+}
+
+.container > button{
+    margin: 10px;
+}

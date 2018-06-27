@@ -12,9 +12,18 @@ export class BookCreateComponent implements OnInit {
 
   book = {};
 
+  types = [
+    {label: 'Książka', value: 'Książka'},
+    {label: 'Artykuł', value: 'Artykuł'},
+    {label: 'Inne', value: 'Inne'}
+  ];
+
+  selectedType;
+
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
+    
   }
 
   saveBook() {
@@ -22,6 +31,16 @@ export class BookCreateComponent implements OnInit {
       .subscribe(res => {
           let id = res['_id'];
           this.router.navigate(['/book-details', id]);
+        }, (err) => {
+          console.log(err);
+        }
+      );
+  }
+
+  loadBook(book) {
+    this.http.post('/book-load', book)
+      .subscribe(res => {
+          console.log(res);
         }, (err) => {
           console.log(err);
         }

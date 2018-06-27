@@ -1,23 +1,76 @@
-<div class="container">
-  <h1>Book List
-    <a [routerLink]="['/book-create']" class="btn btn-default btn-lg">
-      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-    </a>
-  </h1>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let book of books">
-        <td>{{ book.title }}</td>
-        <td>{{ book.author }}</td>
-        <td><a [routerLink]="['/book-details', book._id]">Show Detail</a></td>
-      </tr>
-    </tbody>
-  </table>
+<p-messages [(value)]="msgs"></p-messages>
+<div *ngIf="!passwordValidate">
+    <h3 style="margin: 10px;">Wprowadź hasło dostępowe</h3>
+<span style="margin: 10px;" class="ui-float-label">
+    <input id="float-input" type="password" size="30" [(ngModel)]="password" (keydown)="checkPassword($event)" pInputText> 
+</span>
+<span style="margin: 10px;"><p-button (onClick)="checkPasswordButton()" label="Wejdź do systemu"></p-button></span>
 </div>
+<div *ngIf="passwordValidate" class="ui-g container">
+  <div class="ui-g-12 ui-md-12 ui-lg-12 header">
+      <img src="../../favicon.png" alt="Biblioteczny chomik" />
+      <h1>Biblioteczny chomik
+        <a [routerLink]="['/book-create']" class="btn btn-default btn-lg">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </a>
+      </h1>
+  </div>
+  <h4>Poniżej znajduje się lista wszystkich pozycji dostępnych w bazie</h4>
+  <div *ngIf="addingObjects" class="ui-g-12 ui-md-12 ui-lg-12">
+    <h4>Trwa dodawanie obiektów do bazy...</h4>
+    <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+  </div>   
+  <div class="ui-g-12 ui-md-12 ui-lg-12 file-upload">
+    <label for="name">Wgraj pozycje z pliku BIBTEX (możesz wybrać pliki metodą Drag and Drop)</label>
+    <p-fileUpload chooseLabel="Wybierz pliki z dysku" uploadLabel="Wyślij plik" 
+    url="/book-load" cancelLabel="Anuluj" name="myfile[]" (onUpload)="onUpload($event)">
+    <ng-template pTemplate="content">
+        <ul *ngIf="uploadedFiles.length">
+            <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+        </ul> 
+    </ng-template>        
+    </p-fileUpload>
+  </div>
+  <p-progressSpinner class="progressSpinner" *ngIf="loadingData"></p-progressSpinner>
+  <p-table #dt *ngIf="!loadingData" [columns]="cols" [value]="books" [paginator]="true" [rows]="15">
+      <ng-template pTemplate="caption">
+          <div style="text-align: right">        
+              <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+              <input type="text" pInputText size="50" placeholder="Szukaj..." (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+          </div>
+      </ng-template>
+      <ng-template pTemplate="header" let-columns>
+          <tr>
+              <th *ngFor="let col of columns" [pSortableColumn]="col.field" [ngSwitch]="col.field">
+                  <span *ngSwitchCase="'actions'">{{col.header}}</span>
+                  <span *ngSwitchDefault>{{col.header}}<p-sortIcon [field]="col.field"></p-sortIcon></span>
+
+              </th>
+          </tr>
+          <tr>
+              <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                  <input *ngSwitchCase="'publication_type'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                  <input *ngSwitchCase="'author'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                  <input *ngSwitchCase="'title'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                  <input *ngSwitchCase="'link'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+              </th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-book>
+          <tr>
+              <td>{{ book.publication_type }}</td>
+              <td>{{ book.author }}</td>
+              <td>{{ book.title }}</td>
+              <td><a href="http://{{book.link}}" target="_blank">{{ book.link }}</a></td>
+              <td>
+                <a [routerLink]="['/book-details', book._id]"><button pButton type="button" label="Więcej" class="ui-button-warning"></button></a>
+                <p-toggleButton *ngIf="!checkedAll" [ngModel]="getStatus(book._id)" (onChange)="updateTableWithIds(book, book._id, $event)" onLabel="Wybrano" offLabel="Nie wybrano" onIcon="fa-check-square" offIcon="fa-square" [style]="{'margin':'5px'}"></p-toggleButton>
+                <p-toggleButton *ngIf="checkedAll" [(ngModel)]="checkedAll" (onChange)="updateTableWithIds(book, book._id, $event)" onLabel="Wybrano" offLabel="Nie wybrano" onIcon="fa-check-square" offIcon="fa-square" [style]="{'margin':'5px'}"></p-toggleButton>
+              </td>
+          </tr>
+      </ng-template>
+  </p-table>
+  <button *ngIf="!loadingData" pButton type="button" (click)="selectAll()" label="Zaznacz wszystkie do pobrania" class="ui-button-info"></button>
+  <button *ngIf="!loadingData" pButton type="button" (click)="unselectAll()" label="Odznacz wszystkie" class="ui-button-info"></button>
+  <button *ngIf="!loadingData && (positionsToDownload.length > 0)" pButton type="button" (click)="downloadBibtexFile()" label="Pobierz wybrane jako plik BIBTEX" class="ui-button-success"></button>
+</div> 
